@@ -23,4 +23,19 @@ list2 = ["Chang","Leong"]
 -- zip list1 list2
 
 -- puzzle: among the numbers 1 to 8, when does the smaller number have a longer word
+numbers = [1..8]
+wordings = ["one","two","three","four","five","six","seven","eight"]
+
+pairs = zip numbers wordings
+
+-- prepare tuple format
+format = [(fst p, fst q) | p <- pairs, q <-pairs]
+
+-- filter length word length
+filter1 = [(fst p, fst q) | p <- pairs, q <- pairs, length (snd p) > length (snd q)]
+
+-- filter p < q
+filter2 = [(fst p, fst q) | p <- pairs, q <- pairs, length (snd p) > length (snd q), fst p < fst q]
+
+-- answer, filter2 = [(3,4),(3,5),(3,6),(4,6),(5,6)]
 
