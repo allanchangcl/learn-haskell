@@ -39,3 +39,9 @@ filter2 = [(fst p, fst q) | p <- pairs, q <- pairs, length (snd p) > length (snd
 
 -- answer, filter2 = [(3,4),(3,5),(3,6),(4,6),(5,6)]
 
+f :: [Int] -> Int
+f ls = head ls + length ls
+
+-- / return a fractional, use div
+dividesEvenly :: Int -> Int -> Bool
+dividesEvenly x y = (y `div` x) * x == y
